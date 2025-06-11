@@ -1,6 +1,6 @@
 import "./ProjectsSection.css";
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { map } from "../../../../script/math";
 import { getCenterPosition } from "../../../../script/utils";
 import { type ProjectProps, getProjects } from "../../../../script/projectsReader";
