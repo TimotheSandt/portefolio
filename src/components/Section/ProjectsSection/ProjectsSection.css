@@ -1,0 +1,114 @@
+.projects-section {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  width: 100vw;
+  min-height: 100vh;
+}
+
+.projects-container {
+  padding: 7rem 8rem;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: calc(100vw - 16rem);
+  text-align: center;
+
+  gap: 10rem;
+
+  --rotation-degree: -1deg;
+  --position-translate: 5rem;
+}
+
+.project-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  
+  width: min(max(40%, 500px), 90%);
+
+  padding: 2rem;
+  background-color: var(--secondary-color);
+  border-radius: 25px;
+
+  box-shadow: 3px 6px 12px 1px rgba(0, 0, 0, 0.1);
+}
+
+.project-container:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.project-container img {
+  width: 40%;
+}
+
+.project-content {
+  padding: 1rem;
+  
+  width: 60%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+
+
+  gap: 3rem;
+}
+
+.project-container:nth-child(even) .project-content {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+
+.project-link {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  text-align: center;
+  width: 100%;
+}
+
+.project-container:nth-child(even) .project-link {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.project-link a {
+  text-decoration: none;
+  background-color: var(--primary-color);
+  color: var(--primary-text-color);
+  padding: 10px 20px;
+  border-radius: 5px;
+
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.project-link a:hover {
+  background-color: var(--primary-color-hover);
+  color: var(--primary-text-color);
+}
+
+.project-text h3 {
+  font-size: 2rem;
+  margin: 0;
+  color: var(--secondary-text-color);
+}
+
+.project-text p {
+  margin: 0;
+  color: var(--secondary-alt-text-color);
+}

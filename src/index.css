@@ -1,0 +1,37 @@
+:root {
+  --primary-color: darkcyan;
+  --primary-color-hover: rgb(0, 180, 180);
+  --secondary-color: aliceblue;
+  --tertiary-color: lightskyblue;
+  
+  --primary-text-color: #fff;
+  --primary-alt-text-color: #dadada;
+  --secondary-text-color: #222;
+  --secondary-alt-text-color: #777;
+
+  font-family: BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+    "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --line-spacing: 13rem;
+  --color-line: #33333316;
+
+  --rotation-background-line: 15deg;
+
+  background-image: linear-gradient(
+      calc(var(--rotation-background-line) - 0deg), transparent calc(var(--line-spacing) - 1px),
+      var(--color-line) var(--line-spacing), transparent calc(var(--line-spacing) - 1px)
+    ),
+    linear-gradient(
+      calc(var(--rotation-background-line) - 90deg), transparent calc(var(--line-spacing) - 1px),
+      var(--color-line) var(--line-spacing), transparent calc(var(--line-spacing) - 1px)
+    );
+  background-repeat: repeat;
+
+  background-size: var(--line-spacing) var(--line-spacing);
+}
+
+body {
+  margin: 0;
+}

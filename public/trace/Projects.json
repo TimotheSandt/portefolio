@@ -1,0 +1,14 @@
+{
+  "DirImages": "/public/trace/images/",
+  "DirDescriptions": "/public/trace/descriptions/",
+  "projects": [
+    {
+      "title": "Chronosync",
+      "src": "ChronosyncMCD.json"
+    },
+    {
+      "title": "Minimax",
+      "src": "minimax.json"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "title": "Puissance X - Minimax",
+
+  "image": {
+    "src": "Minimax.png",
+    "alt": "Algorithme Minimax",
+    "legend": "Figure %s: "
+  },
+  "page": "/minimax",
+
+  "summary": "Création d'un jeu de puissance X en implémentant l'algorithme Minimax.",
+  "description": [
+    "La Figure %s présente une vue de mon environnement de développement IDEA pendant la conception d'un jeu de Puissance X avec le langage Java. L'interface est en mode console, visible en bas à gauche de l'écran. Le cœur de ce projet a été de donner vie à une intelligence artificielle capable de rivaliser et de battre un humain. Pour cela, j'ai choisi d'implémenter l'algorithme Minimax, une approche fondamentale en intelligence artificielle des jeux. Ce principe permet à l'IA d'analyser les différentes séquences de coups possibles jusqu'à une certaine profondeur, afin de choisir la meilleure option pour atteindre la victoire, en anticipant et simulant les réponses de l'adversaire. L'objectif est de minimiser la pire perte tout en maximisant le meilleur gain potentiel.",
+    "Pour que l'IA puisse anticiper, j'ai conçu une méthode permettant à l'algorithme d'imaginer les coups successifs, qu'ils soient les siens ou ceux de l'adversaire. J'ai utilisé la récursivité pour parcourir les différentes séquences de jeu, construisant ainsi une arborescence des possibilités. Chaque palier de cette exploration représente un tour de jeu. Minimax évalue chaque 'feuille' de cette arborescence – c'est-à-dire chaque état du plateau au dernier palier de l'exploration – puis transmet son score aux paliers précédents, permettant ainsi de remonter le meilleur chemin jusqu'au coup actuel.",
+    "Afin d'optimiser les performances de l'IA et d'éviter qu'elle ne prenne pas un temps infini à réfléchir, j'ai intégré une optimisation cruciale : l'élagage Alpha-Bêta. Cette technique m'a permis de réduire considérablement le nombre de coups à évaluer dans l'arbre des possibilités du jeu, sans pour autant compromettre la qualité de la décision finale. En implémentant cette optimisation, j'ai pu améliorer significativement la performance de l'IA en lui permettant de ne pas calculer des branches entière de l'arbre des possibilités qui sont, par la nature de l'algorithme Minimax, nécessairement moins bien et fourniraient un moins bon score que ceux déjà évalués.",
+    "Pour que l'IA puisse 'juger' de la qualité du plateau à un instant T, j'ai développé une fonction d'évaluation heuristique. Cette fonction attribue un score à chaque configuration du Puissance X en tenant compte d'éléments stratégiques comme les lignes de deux, trois ou quatre jetons alignés. C'est un point délicat mais essentiel, car une bonne fonction d'évaluation est essentielle pour garantir que l'IA joue au mieux possible en évaluant correctement une position du jeu.",
+    "La console en bas de l'écran (visible à gauche) montre l'état du plateau dans la partie en cours ainsi que l'évaluation des coups possibles pour chaque colonne. Afficher ces informations, m'a été indispensable pour vérifier que l'IA évaluait correctement les état du jeux et que l'algorithme Minimax fonctionnait comme il fallait. Cela m'a permis de m'assister pour le débogage de l'algorithme afin de corriger les erreurs en réécrivant la fonction d'évaluation ou l'algorithme Minimax à plusieurs reprises jusqu'a ce qu'elle soit parfaitement fonctionnelle. C'est ainsi qu'après plusieurs corrections et réécritures de code, je me suis finalement tourné vers la variante negamax de l'algorithme Minimax.",
+    " Bien que l'IA soit déjà fonctionnelle et offre une bonne expérience de jeu, je vois des pistes pour aller plus loin, notamment en affinant encore ma fonction d'évaluation ou en explorant d'autres techniques d'optimisation pour pousser la profondeur de recherche. Je pourrais notamment enregistrer l'arborescence des possibilités pour l'a réutiliser aux prochains coups afin de ne pas tout recalculer et de reprendre la ou l'IA s'était arêté au coup précédent"
+  ]
+}
