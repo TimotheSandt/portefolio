@@ -48,14 +48,14 @@ function App() {
           }}
         />
         <main className="main">
-          <Routes>
+          <Routes>  
             <Route path="/" Component={HomePage} />
 
-            {getProjects().map((project: ProjectProps) => (
+            {getProjects().map((project: ProjectProps, index:number) => (
               <Route
                 key={project.page}
                 path={`/project${project.page}`}
-                element={<TraceSection index={getProjects().indexOf(project)} {...project} />}
+                element={<TraceSection index={index} {...project} />}
               />
             ))}
 

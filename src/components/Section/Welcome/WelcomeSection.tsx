@@ -49,7 +49,7 @@ function WelcomeSection({ id }: { id?: string }) {
       <div className="welcome-container">
         <div className="welcome-text">
           <h1>Timothé Sandt</h1>
-          <p>Programmer</p>
+          <p>Etudiant en BUT informatique</p>
         </div>
       </div>
       <AnimatedWave
