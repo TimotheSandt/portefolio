@@ -1,6 +1,6 @@
 {
-  "DirImages": "/public/trace/images/",
-  "DirDescriptions": "/public/trace/descriptions/",
+  "DirImages": "/trace/images/",
+  "DirDescriptions": "/trace/descriptions/",
   "projects": [
     {
       "title": "Chronosync",
@@ -8,7 +8,7 @@
     },
     {
       "title": "Minimax",
-      "src": "minimax.json"
+      "src": "Minimax.json"
     }
   ]
 }

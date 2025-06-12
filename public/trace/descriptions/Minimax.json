@@ -4,7 +4,7 @@
   "image": {
     "src": "Minimax.png",
     "alt": "Algorithme Minimax",
-    "legend": "Figure %s: "
+    "legend": "Figure %s: Implémentation d'une intelligence artificielle pour le jeu de Puissance X, basée sur l'algorithme Minimax optimisé par l'élagage Alpha-Bêta."
   },
   "page": "/minimax",
 
