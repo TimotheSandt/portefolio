@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { type ProjectProps, getProjects } from "../../../../script/projectsReader";
+import { type ProjectProps } from "../../../../script/projectsReader";
 
 import "./TraceSection.css";
 
@@ -31,44 +29,15 @@ function Trace({ id, index, title, description, image }: TraceProps) {
   );
 }
 
-const TraceAsync: React.FC<{ id?: string }> = ({ id }) => {
-  const { id: projectId } = useParams<{ id: string }>();
-  const [fetchedProjects, setFetchedProjects] = useState<ProjectProps[]>([]);
-  const [error] = useState<string | null>(null);
+interface TraceSectionProps extends ProjectProps {
+  id?: string;
+  index: number;
+}
 
-  useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        const projectsData = await getProjects();
-        setFetchedProjects(projectsData);
-      } catch (error) {
-        console.error("Error fetching projects:", error);
-      }
-    };
-    fetchProjects();
-  }, []);
-
-  if (error) {
-    return <div>Error fetching projects: {error}</div>;
-  }
-
-  if (!fetchedProjects.length) {
-    return <div>Loading...</div>;
-  }
-
-  // console.log(projectId);
-  const index = fetchedProjects.findIndex((project) => project.page === "/" + projectId);
-  const project = fetchedProjects[index];
-
-  if (!project) {
-    return <div>Project not found</div>;
-  }
+function TraceSection({ id, index, ...project }: TraceSectionProps) {
+  
 
   return <Trace id={id} index={index} {...(project as ProjectProps)} />;
-};
-
-function TraceSection({ id }: { id?: string }) {
-  return <TraceAsync id={id} />;
 }
 
 export default TraceSection;

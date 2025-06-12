@@ -11,11 +11,20 @@ import AnimatedWave from "./components/Noise/AnimatedWave.tsx";
 import { getCSSVariable } from "../script/utils.ts";
 import { useEffect } from "react";
 
+import { type ProjectProps, getProjects } from "../script/projectsReader";
+
 function App() {
   const title: string = "Timothe Sandt";
   const links: NavBarLink[] = [
     { title: "Home", href: "/#welcome" },
-    { title: "Projects", href: "/#projects" },
+    {
+      title: "Projects",
+      href: "/#projects",
+      subLinks: getProjects().map((project: ProjectProps) => ({
+        title: project.title,
+        href: `/project${project.page}`,
+      })),
+    },
   ];
 
   useEffect(() => {
@@ -42,7 +51,13 @@ function App() {
           <Routes>
             <Route path="/" Component={HomePage} />
 
-            <Route path="/project/:id" Component={TraceSection} />
+            {getProjects().map((project: ProjectProps) => (
+              <Route
+                key={project.page}
+                path={`/project${project.page}`}
+                element={<TraceSection index={getProjects().indexOf(project)} {...project} />}
+              />
+            ))}
 
             <Route path="*" Component={NotFoundPage} />
           </Routes>

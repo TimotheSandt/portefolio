@@ -1,6 +1,6 @@
 import "./ProjectsSection.css";
 
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { map } from "../../../../script/math";
 import { getCenterPosition } from "../../../../script/utils";
 import { type ProjectProps, getProjects } from "../../../../script/projectsReader";
@@ -49,43 +49,14 @@ function Project({ title, image, summary, page }: ProjectProps) {
   );
 }
 
-const ProjectsSectionAsync = () => {
-  const [fetchedProjects, setFetchedProjects] = useState<ProjectProps[]>([]);
-  const [error] = useState(null);
-
-  useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        const projectsData = await getProjects();
-        setFetchedProjects(projectsData);
-      } catch (error) {
-        console.error("Error fetching projects:", error);
-      }
-    };
-    fetchProjects();
-  }, []);
-
-  if (error) {
-    return <div>Error fetching projects: {error}</div>;
-  }
-
-  if (!fetchedProjects.length) {
-    return <div>Loading...</div>;
-  }
-
-  return (
-    <div className="projects-container">
-      {fetchedProjects.map((project) => (
-        <Project key={project.title} {...project} />
-      ))}
-    </div>
-  );
-};
-
 function ProjectsSection({ id }: { id?: string }) {
   return (
     <div id={id} className="projects-section">
-      <ProjectsSectionAsync />
+      <div className="projects-container">
+        {getProjects().map((project) => (
+          <Project key={project.title} {...project} />
+        ))}
+      </div>
     </div>
   );
 }
