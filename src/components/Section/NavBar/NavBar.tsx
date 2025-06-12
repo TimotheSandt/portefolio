@@ -56,9 +56,11 @@ function Link({ children, title, href, className = "link", onClick }: LinkProps)
   const ref = useRef<HTMLLIElement | null>(null);
 
   useEffect(() => {
+    const element = ref.current;
+
     const handleMouseOver = () => {
-      if (ref.current) {
-        const subLinks = ref.current.querySelector<HTMLDivElement>(".sub-links");
+      if (element) {
+        const subLinks = element.querySelector<HTMLDivElement>(".sub-links");
         if (subLinks) {
           subLinks.style.display = "flex";
           subLinks.style.flexDirection = "column";
@@ -67,20 +69,24 @@ function Link({ children, title, href, className = "link", onClick }: LinkProps)
     };
 
     const handleMouseOut = () => {
-      if (ref.current) {
-        const subLinks = ref.current.querySelector<HTMLDivElement>(".sub-links");
+      if (element) {
+        const subLinks = element.querySelector<HTMLDivElement>(".sub-links");
         if (subLinks) {
           subLinks.style.display = "none";
         }
       }
     };
 
-    ref.current?.addEventListener("mouseover", handleMouseOver);
-    ref.current?.addEventListener("mouseout", handleMouseOut);
+    if (element) {
+      element.addEventListener("mouseover", handleMouseOver);
+      element.addEventListener("mouseout", handleMouseOut);
+    }
 
     return () => {
-      ref.current?.removeEventListener("mouseover", handleMouseOver);
-      ref.current?.removeEventListener("mouseout", handleMouseOut);
+      if (element) {
+        element.removeEventListener("mouseover", handleMouseOver);
+        element.removeEventListener("mouseout", handleMouseOut);
+      }
     };
   }, []);
 

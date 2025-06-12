@@ -12,11 +12,10 @@ import { getCSSVariable } from "../script/utils.ts";
 import { useEffect } from "react";
 
 function App() {
-  let title: string = "Timothe Sandt";
+  const title: string = "Timothe Sandt";
   const links: NavBarLink[] = [
     { title: "Home", href: "/#welcome" },
-    { title: "Projects", href: "/#projects", },
-    { title: "About", href: "/about" },
+    { title: "Projects", href: "/#projects", }
   ];
 
   useEffect(() => {

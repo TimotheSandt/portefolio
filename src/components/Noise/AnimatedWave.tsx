@@ -42,7 +42,7 @@ function AnimatedWave({
     function animate() {
       // Increment time using ref (doesn't trigger re-renders)
       timeRef.current += 1;
-      let n = Math.max(Math.floor(0.007 / speed), 1);
+      const n = Math.max(Math.floor(0.007 / speed), 1);
       if (timeRef.current % n !== 0 && timeRef.current > 10) {
         // console.log(n);
         animationRef.current = requestAnimationFrame(animate);
