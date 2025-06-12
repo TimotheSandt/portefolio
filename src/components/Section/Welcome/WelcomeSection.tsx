@@ -4,7 +4,7 @@ import "./WelcomeSection.css";
 import AnimatedWave from "../../Noise/AnimatedWave.tsx";
 
 import { map } from "../../../../script/math.ts";
-import { getCSSVariable } from "../../../../script/utils.ts"; 
+import { getCSSVariable } from "../../../../script/utils.ts";
 
 function WelcomeSection({ id }: { id?: string }) {
   const initialAmplitude = 75;
@@ -25,7 +25,13 @@ function WelcomeSection({ id }: { id?: string }) {
       const welcomeTextSubtitleElement = document.querySelector(".welcome-text p") as HTMLElement;
 
       const opacityTitle = map(welcomeTextTitleElement.getBoundingClientRect().top, window.innerHeight * 0.4, 50, 4, 0);
-      const opacitySubtitle = map(welcomeTextSubtitleElement.getBoundingClientRect().top, window.innerHeight * 0.5, 50, 4, 0);
+      const opacitySubtitle = map(
+        welcomeTextSubtitleElement.getBoundingClientRect().top,
+        window.innerHeight * 0.5,
+        50,
+        4,
+        0
+      );
       // console.log(opacityTitle, opacitySubtitle);
 
       welcomeTextTitleElement.style.opacity = `${opacityTitle}`;

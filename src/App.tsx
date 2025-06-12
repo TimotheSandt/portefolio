@@ -15,7 +15,7 @@ function App() {
   const title: string = "Timothe Sandt";
   const links: NavBarLink[] = [
     { title: "Home", href: "/#welcome" },
-    { title: "Projects", href: "/#projects", }
+    { title: "Projects", href: "/#projects" },
   ];
 
   useEffect(() => {

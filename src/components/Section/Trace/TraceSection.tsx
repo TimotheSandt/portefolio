@@ -10,9 +10,8 @@ interface TraceProps extends ProjectProps {
 }
 
 function Trace({ id, index, title, description, image }: TraceProps) {
-
-  const newDescription = description.map(desc => desc.replace(/%s/g, `${index + 1}`));
-  const newImage = {...image, legend: image.legend?.replace(/%s/g, `${index + 1}`) || ""};
+  const newDescription = description.map((desc) => desc.replace(/%s/g, `${index + 1}`));
+  const newImage = { ...image, legend: image.legend?.replace(/%s/g, `${index + 1}`) || "" };
 
   return (
     <div id={id} className="trace-section">
@@ -35,10 +34,9 @@ function Trace({ id, index, title, description, image }: TraceProps) {
 const TraceAsync: React.FC<{ id?: string }> = ({ id }) => {
   const { id: projectId } = useParams<{ id: string }>();
   const [fetchedProjects, setFetchedProjects] = useState<ProjectProps[]>([]);
-  const [error, ] = useState<string | null>(null);
+  const [error] = useState<string | null>(null);
 
   useEffect(() => {
-
     const fetchProjects = async () => {
       try {
         const projectsData = await getProjects();
@@ -68,7 +66,6 @@ const TraceAsync: React.FC<{ id?: string }> = ({ id }) => {
 
   return <Trace id={id} index={index} {...(project as ProjectProps)} />;
 };
-
 
 function TraceSection({ id }: { id?: string }) {
   return <TraceAsync id={id} />;

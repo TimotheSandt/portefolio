@@ -51,7 +51,7 @@ function Project({ title, image, summary, page }: ProjectProps) {
 
 const ProjectsSectionAsync = () => {
   const [fetchedProjects, setFetchedProjects] = useState<ProjectProps[]>([]);
-  const [error, ] = useState(null);
+  const [error] = useState(null);
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -74,11 +74,11 @@ const ProjectsSectionAsync = () => {
   }
 
   return (
-      <div className="projects-container">
-        {fetchedProjects.map((project) => (
-          <Project key={project.title} {...project} />
-        ))}
-      </div>
+    <div className="projects-container">
+      {fetchedProjects.map((project) => (
+        <Project key={project.title} {...project} />
+      ))}
+    </div>
   );
 };
 

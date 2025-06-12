@@ -55,13 +55,13 @@ function AnimatedWave({
 
       const width = window.innerWidth;
       const resolution = 16; // Points per wave segment
-      const amplitudeOffset = ( height <= 50) ? Math.max(map(height, 10, 50, 0, 20), 0) : 20;
+      const amplitudeOffset = height <= 50 ? Math.max(map(height, 10, 50, 0, 20), 0) : 20;
       const baseHeight = fillDirection === "below" ? height - amplitude - amplitudeOffset : amplitude + amplitudeOffset; // Base position of the wave
 
       const points = [];
 
       // Generate wave points
-      for (let x = 0; x <= width;) {
+      for (let x = 0; x <= width; ) {
         const noiseValue = noise.noise(x * frequency, timeRef.current * speed, 0);
         const y = baseHeight + noiseValue * amplitude;
         points.push({ x, y });
@@ -69,7 +69,7 @@ function AnimatedWave({
         x += resolution;
         if (x > width && x - resolution !== width) {
           x = width;
-        } 
+        }
       }
 
       // Create smooth path using quadratic curves
